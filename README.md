@@ -32,6 +32,11 @@
 - [academic-torrent](https://academictorrents.com/)
 
 ---
+
+###### Needed Qualities:
+---
+###### Qualities i lack:
+---
 ###### Weakness:
 - Mathematics
 - Focus
@@ -41,6 +46,7 @@
 
 
 ###### Strength:
+- Stubbornesss
 
 
 ###### Opportunities:
@@ -48,10 +54,10 @@
 ---
 
 
-Where i see myself:
+_* I see myself in:*_
 
-- 1 year:
-- 2 year:
-- 5 year:
-- 10 year:
+- 1 year: doing a phd and writing a paper.
+- 2 year: a tiny lab of my own.
+- 5 year: a i less-tiny lab of my own.
+- 10 year: doing research in CSE and neuroscience.
 ---
