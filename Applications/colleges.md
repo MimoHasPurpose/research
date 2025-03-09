@@ -25,7 +25,7 @@ NIT:
 - Trichy
 - Rourkela
 
-IIIT:
+IIT:
 
 - Hyderabad
 - Allahabad
