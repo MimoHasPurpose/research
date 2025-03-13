@@ -34,6 +34,10 @@
 ---
 
 ###### Needed Qualities:
+- Strong Mathematics
+- Creativity
+- Stubborness
+- Consistency
 ---
 ###### Qualities i lack:
 ---
