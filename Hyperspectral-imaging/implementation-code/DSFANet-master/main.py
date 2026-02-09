@@ -3,6 +3,19 @@ import numpy as np
 import tensorflow as tf
 from sklearn.cluster import KMeans
 from sklearn.metrics import accuracy_score
+import logging
+import random
+from tqdm import tqdm
+# from time import sleep
+
+
+logging.basicConfig(filename="log.txt",
+                    filemode='a',
+                    level=logging.INFO,
+                    format='%(asctime)s %(levelname)s-%(message)s',
+                    datefmt='%Y-%m-%d %H:%M:%S')
+
+
 
 import utils
 from model import DSFANet
@@ -30,7 +43,7 @@ def main(X, Y, GT, diff):
     train_loss = np.zeros(max_iters)
 
     # -------- Training --------
-    for k in range(max_iters): #max_iters=100
+    for k in tqdm(range(max_iters)): #max_iters=100
         with tf.GradientTape() as tape:
             loss = model((XData, YData), training=True) # loss calculated from model with XData, YData
 
@@ -38,10 +51,11 @@ def main(X, Y, GT, diff):
         optimizer.apply_gradients(zip(grads, model.trainable_variables))
 
         train_loss[k] = loss.numpy()
+        
 
         if k % 100 == 0:
             print(f"iter {k:4d}, loss is {train_loss[k]:.4f}")
-
+            logging.info(f"epoch no:{k}"":"f"{train_loss[k]:.4f}")
     # -------- Inference --------
     X_tf = tf.convert_to_tensor(X, dtype=tf.float32)
     Y_tf = tf.convert_to_tensor(Y, dtype=tf.float32)
