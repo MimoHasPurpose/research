@@ -1,0 +1,6 @@
+numpy
+scipy
+scikit-learn
+matplotlib
+torch>=1.10.0
+timm>=0.4.12

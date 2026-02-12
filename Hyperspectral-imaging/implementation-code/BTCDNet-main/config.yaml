@@ -1,0 +1,25 @@
+data:
+  num_samples: 100
+  HSI_data_path: "./data/Shenzhen.mat"
+
+settings:
+  mode: "train"
+  pretrained: False 
+  model_path: "" 
+  DP: True
+  gpu: "0,1,2,3"
+  epoch: 200
+  test_freq: 500
+  batch_size: 256
+  learning_rate: 0.0001
+  min_learning_rate: 0.000001
+  weight_decay: 0
+  ignore_index: 0
+  random_seed: 3407
+
+model:
+  model_type: "BTCDNet" # SSTFormer CSANet BIT GETNET ReCNN BTCDNet BTCDNet_no BTCDNet_noT BTCDNet_noP 
+  patches: 5
+  band_patches: 1
+  num_classes: 3
+
