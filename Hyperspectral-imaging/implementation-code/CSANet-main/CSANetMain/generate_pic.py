@@ -11,31 +11,40 @@ import torch.nn as nn
 import torch.nn.functional as F
 from sklearn.decomposition import PCA
 
+# dataset:
+# 1. wetland agricultural dataset
+# 2. river dataset
+# 3. irrigated agricultural land
 def load_dataset():
-    # T1_ori = sio.loadmat('...\datasets\Farm1.mat')
-    # T2_ori = sio.loadmat('...\datasets\Farm2.mat')
-    # mat_gt = sio.loadmat('...\datasets\GTChina1.mat')
-    # TT1 = T1_ori['imgh']
-    # TT2 = T2_ori['imghl']
-    # gt_hsi = mat_gt['label']
-    # TOTAL_SIZE = 63000
-    # VALIDATION_SPLIT = 0.787
-    # TRAIN_SIZE = math.ceil(TOTAL_SIZE * VALIDATION_SPLIT)
-    path='/home/mimo/Desktop/github/research/Hyperspectral-imaging/implementation-code/CSANet-main/datasets'
-    T1_ori = sio.loadmat('/home/mimo/Desktop/github/research/Hyperspectral-imaging/implementation-code/CSANet-main/datasets/River_before.mat')
-    T2_ori = sio.loadmat('/home/mimo/Desktop/github/research/Hyperspectral-imaging/implementation-code/CSANet-main/datasets/River_after.mat')
-    mat_gt = sio.loadmat('/home/mimo/Desktop/github/research/Hyperspectral-imaging/implementation-code/CSANet-main/datasets/Rivergt.mat')
-    TT1 = T1_ori['river_before']
-    TT2 = T2_ori['river_after']
-    gt_hsi = mat_gt['gt']
-    TOTAL_SIZE = 111583
-    VALIDATION_SPLIT = 0.9664
+    # wetland agricultural dataset.
+    data="/home/mimo/Desktop/github/research-journey/Hyperspectral-imaging/implementation-code/CSANet-main/datasets/"
+    T1_ori = sio.loadmat(data+"Farm1.mat")
+    T2_ori = sio.loadmat(data+"Farm2.mat")
+    mat_gt = sio.loadmat(data+"GTChina1.mat")
+    TT1 = T1_ori['imgh']
+    TT2 = T2_ori['imghl']
+    gt_hsi = mat_gt['label']
+    TOTAL_SIZE = 63000
+    VALIDATION_SPLIT = 0.787
+    
     TRAIN_SIZE = math.ceil(TOTAL_SIZE * VALIDATION_SPLIT)
+    # path='/home/mimo/Desktop/github/research/Hyperspectral-imaging/implementation-code/CSANet-main/datasets'
+    # T1_ori = sio.loadmat('/home/mimo/Desktop/github/research/Hyperspectral-imaging/implementation-code/CSANet-main/datasets/River_before.mat')
+    # T2_ori = sio.loadmat('/home/mimo/Desktop/github/research/Hyperspectral-imaging/implementation-code/CSANet-main/datasets/River_after.mat')
+    # mat_gt = sio.loadmat('/home/mimo/Desktop/github/research/Hyperspectral-imaging/implementation-code/CSANet-main/datasets/Rivergt.mat')
+    # TT1 = T1_ori['river_before']
+    # TT2 = T2_ori['river_after']
+    # gt_hsi = mat_gt['gt']
+    # TOTAL_SIZE = 111583
+    # VALIDATION_SPLIT = 0.9664
+    # TRAIN_SIZE = math.ceil(TOTAL_SIZE * VALIDATION_SPLIT)
+   
+    # irrigated agricultural land
+    
 
-
-    # T1_ori = sio.loadmat('...\datasets\Sa1.mat')
-    # T2_ori = sio.loadmat('...\datasets\Sa2.mat')
-    # mat_gt = sio.loadmat('...\datasets\SaGT.mat')
+    # T1_ori = sio.loadmat(data+"Sa1.mat")
+    # T2_ori = sio.loadmat(data+"Sa2.mat")
+    # mat_gt = sio.loadmat(data+"SaGT.mat")
     # TT1 = T1_ori['T1']
     # TT2 = T2_ori['T2']
     # gt_hsi = mat_gt['GT']
@@ -45,6 +54,9 @@ def load_dataset():
 
     return TT1, TT2, gt_hsi, TOTAL_SIZE, TRAIN_SIZE, VALIDATION_SPLIT
 
+
+a,b,c,d,e,f=load_dataset()
+print(a.shape, b.shape, c.shape, d,e,f)
 # tt1,tt2,gt_hsi,total_size,train_size,validation_split=load_dataset()
 # print(tt1.shape)
 # print(tt2.shape)
